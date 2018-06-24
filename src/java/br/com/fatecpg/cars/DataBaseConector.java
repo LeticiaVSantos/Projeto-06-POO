@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DataBaseConector {
     
     private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
-    private static final String URL = "jdbc:derby://localhost:1527/parking";
+    private static final String URL = "jdbc:derby://localhost:1527/cars";
     private static final String USER = "cars";
     private static final String PASS = "cars";
     
