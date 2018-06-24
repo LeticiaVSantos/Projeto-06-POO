@@ -10,6 +10,6 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h1>Página Inicial</h1>
+    <center><h1>Página Inicial</h1></center>
     </body>
 </html>
