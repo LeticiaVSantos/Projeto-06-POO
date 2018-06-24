@@ -6,15 +6,6 @@ import java.util.ArrayList;
 
 public class User {
     
-    private static Object[] parameters;
-
-    public static Object[] getParameters() {
-        return parameters;
-    }
-
-    public static void setParameters(Object[] aParameters) {
-        parameters = aParameters;
-    }
     private long id;
     private String role;
     private String name;
