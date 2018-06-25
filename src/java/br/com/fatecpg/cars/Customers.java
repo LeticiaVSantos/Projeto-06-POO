@@ -13,7 +13,7 @@ public class Customers {
     private String telephone;
     private String email;
 
-    public Customers(long id, String name, String rg, String cpf, String address, String telephone, String email) {
+    public Customers(Long id, String name, String rg, String cpf, String address, String telephone, String email) {
         this.id = id;
         this.name = name;
         this.rg = rg;
@@ -79,9 +79,9 @@ public class Customers {
         this.email = email;
     }
     
-    public static Customers getCustomers(String name, String rg, String cpf)throws Exception{
+    public static Customers getCustomers(String name, String rg)throws Exception{
         String SQL = "SELECT * FROM CUSTOMERS "
-                + "WHERE name = ? AND rg = ? AND cpf = ?";
+                + "WHERE name = ? AND rg = ?";
         ArrayList<Object[]> list = DataBaseConnector.getQuery(SQL, new Object[]{});
         if(list.isEmpty()){
             return null;
