@@ -1,0 +1,71 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Date" %>
+<%@page import="br.com.fatecpg.cars" %>
+
+
+<!DOCTYPE html>
+<%
+    String error = null;
+    if(request.getParameter("formNewPeriod")!=null)(
+         try(
+             String model = request.getParameter("model");
+             String plate = request.getParameter("plate");
+             Period.addPeriod(model,plate);
+             response.SendRedirect (request.getRequestURI());
+                 }catch(Exception e){
+                     error = e.getMessage();
+                 }
+         )
+     
+           
+    %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Aluguel de carros</title>
+    </head>
+    <body>
+        <h1>Preços</h1>
+        <%if(session.getAttribute("user")==null)(%>
+        <h2>É preciso estar logado para acessar este recurso</h2>
+        <%)else(%>
+        <% User user = (User) session.getAttribute("users"); %>
+        <% if (error!=null)(%>
+        <h3><%=error%></h3>
+        <%)%>
+        <fieldset>
+            <legend>Entrada de veiculo</legend>
+            <form>
+                Modelo:<input type="text" name ="model"/>
+                Placa:<input type="text" name ="plate"/>
+                <input type="submit" name ="forNewPeriod" value="registrar entrada"/>
+            </form>
+            
+        </fieldset>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Entrada</th>
+                <th>Comando</th>
+                
+            </tr>
+            <%for (Period p: Period.getPeriods())(%>
+            <tr>
+                <td><%=p.getId()%></td>
+                <td><%=p.getModel()%></td>
+                <td><%=p.getPlaca()%></td>
+                <td><%=p.getBegin()%></td>
+                <td>
+                    <a href="finishperiod.jsp?=<%=p.getId()%>>">Registrar saida</a>
+                </td>
+                
+            </tr>
+            
+            
+        </table>
+        
+        
+    </body>
+</html>
