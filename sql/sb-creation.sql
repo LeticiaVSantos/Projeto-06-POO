@@ -15,6 +15,20 @@ INSERT INTO users VALUES
 INSERT INTO users VALUES
 (default, 'OPERADOR', 'Leticia Santos', 'leticia', 1509442);
 
+DROP TABLE customers;
+CREATE TABLE customers(
+    id BIGINT not null primary key
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1, INCREMENT BY 1)
+    , name varchar(200) not null
+    , rg varchar(9) not null
+    , cpf varchar(14) not null
+    , address varchar(50) not null
+    , telephone varchar(11) not null
+    , email varchar(25) not null
+    
+);
+
 DROP TABLE prices;
 CREATE TABLE prices(
      id BIGINT not null primary key
