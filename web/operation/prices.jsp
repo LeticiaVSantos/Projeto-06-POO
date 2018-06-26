@@ -45,20 +45,21 @@
         <h3><%=error%></h3>
         <%}%>
         <fieldset>
-            <legend>Novo Preço</legend>
+            <legend>Adicionar Novo Preço</legend>
             <form>
-                Novo Preço:<input type="text" name="price"/>
-                <input type="submit" name="formNewPrice" value="Add"/>
-                
+                <div class="form-group col-md-2">
+                 <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Preço"> &nbsp;&nbsp;
+                 <br><input class="btn btn-success" type="submit" name="formNewPrice" value="Adicionar"/>
+                </div>
             </form>
         </fieldset>
-        
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Data/hora</th>
-                <th>Preço</th>
-                <th>comando</th>
+      
+        <table class="table table-bordered">
+            <tr class="table-primary">
+                <th scope="col">ID</th>
+                <th scope="col">Data/hora</th>
+                <th scope="col">Preço</th>
+                <th scope="col">comando</th>
                 
             </tr>
             <%for(Price p: Price.getPrices()){%>
@@ -70,13 +71,14 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=p.getId()%>"/>
-                        <input type="submit" name="formDeletePrice" value="Remover"/>
+                        <input class="btn btn-danger" type="submit" name="formDeletePrice" value="Remover"/>
                     </form>
                 </td>
             </tr>
             <%}%>            
         </table>
         <%}%>
+        
     </center>
     </body>
 </html>

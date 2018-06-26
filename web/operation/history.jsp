@@ -5,21 +5,18 @@
 <%
  String error = null;
  String plate = null;
- String date = null;
+ String retirada = null;
  
- try{
+
  if(request.getParameter("formFilter ")!=null){
         
- date = request.getParameter("date");
- if(date.isEmpty()) date = null;
+ retirada = request.getParameter("retirada");
+ if(retirada.isEmpty()) retirada = null;
  plate = request.getParameter("plate");
  if(plate.isEmpty()) plate = null;
  }
- }catch(Exception ex){
-        error = ex.getMessage();
-         
-     
-}%>
+
+%>
 
 <html>
     <head>
@@ -47,7 +44,7 @@
             <h5><legend>Filtro</legend></h5>
             <br>
             <form>
-                Data:<input type="date" name="date"/>
+                Data:<input type="date" name="retirada"/>
                 Placa:<input type="text" name="plate"/> 
                 <input class="btn btn-success" type="submit" name="formFilter" value="Filtrar"/>
                 
@@ -60,7 +57,7 @@
                 <th scope="col">Devolução</th>
                 <th scope="col">Preço</th>
             </tr>
-            <%for(Period p: Period.getHistory(date, plate)){%>
+            <%for(Period p: Period.getHistory(retirada, plate)){%>
             <tr>
                 <td><%=p.getId()%></td>
                 <td><%=p.getModel()%></td>

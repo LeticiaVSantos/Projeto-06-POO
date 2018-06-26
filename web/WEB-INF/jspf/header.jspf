@@ -70,6 +70,7 @@
     
     <% User user = (User) session.getAttribute("user"); %>
     <h4>Bem vindo, <%= user.getName()%> [<%=user.getRole()%>]</h4>
+    <br>
     <input class="btn btn-primary" type="submit" name="formLogoff" value="Sair"/>
  
  </div>   

@@ -64,10 +64,7 @@
             <br>
             
             <form>
-                
-               <div class="form-row">
-                <div class="form-group col-md-2">
-                    
+               <div class="form-group col-md-2">
                 <label for="inputName">Nome: </label>
                  <input type="text" name="name" class="form-control" id="inputName" placeholder="Nome">
                 </div>

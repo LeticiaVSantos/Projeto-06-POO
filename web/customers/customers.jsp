@@ -63,14 +63,37 @@
             <h5><legend>Cadastro de Clientes</legend></h5>
             <br>
             <form>
-                Nome: <input type="text" name="customer_name"/>
-                RG: <input type="text" name="rg"/>
-                CPF: <input type="text" name="cpf"/>
-                Endereço: <input type="text" name="address"/>
-                Telefone: <input type="text" name="telephone"/>
-                E-mail: <input type="text" name="email"/>
                 
+                <div class="form-group col-md-2">
+                <label for="inputName">Nome: </label>
+                 <input type="text" name="customer_name" class="form-control" id="inputName" placeholder="Nome">
+                </div>
                 
+                <div class="form-group col-md-2">
+                <label for="inputRg">RG: </label>
+                 <input type="text" name="rg" class="form-control" id="inputRg" placeholder="rg">
+                </div>
+                
+                <div class="form-group col-md-2">
+                <label for="inputCpf">CPF: </label>
+                 <input type="text" name="cpf" class="form-control" id="inputCpf" placeholder="cpf">
+                </div>
+                
+                <div class="form-group col-md-2">
+                <label for="inputAddress">Endereço: </label>
+                 <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Endereço">
+                </div>
+                
+                <div class="form-group col-md-2">
+                <label for="inputTel">Telefone: </label>
+                 <input type="text" name="telephone" class="form-control" id="inputTel" placeholder="Telefone">
+                </div>
+                
+                <div class="form-group col-md-2">
+                <label for="inputEmail">E-mail: </label>
+                 <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+               
                 <input class="btn btn-success" type="submit" name="formNewCustomers" value="Registrar"/>
                 
             </form>

@@ -57,28 +57,47 @@
         <fieldset>
             
             <form>
-                Modelo: <input type="text" name="model"/>
-                Placa: <input type="text" name="plate"/>
-                Data da retirada: <input type="date" name="retirada"/>
-                Hora da retirada: <input type="time" name="hr_retirada"/>
-                Data da devolução: <input type="date" name="dev"/>
-                Hora da devolução: <input type="time" name="hr_dev"/>&nbsp;&nbsp;
-                <input type="submit" name="formNewPeriod" value="Registrar Aluguel"/>
+                <div class="form-group col-md-2">
+                <label for="inputModel">Modelo: </label>
+                 <input type="text" name="model" class="form-control" id="inputModel" placeholder="Modelo">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="inputPlate">Placa: </label>
+                 <input type="text" name="plate" class="form-control" id="inputPlate" placeholder="Placa">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="inputRetirada">Data da retirada: </label>
+                 <input type="date" name="retirada" class="form-control" id="inputRetirada" placeholder="Retirada">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="inputHr_retirada">Hora da retirada: </label>
+                 <input type="time" name="hr_retirada" class="form-control" id="inputHr_retirada" placeholder="Hora da retirada">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="inputDev">Data da devolução: </label>
+                 <input type="date" name="dev" class="form-control" id="inputDev" placeholder="Devolução">
+                </div>
+                <div class="form-group col-md-2">
+                <label for="inputDev">Hora da devolução: </label>
+                 <input type="time" name="hr_dev" class="form-control" id="inputDev" placeholder="Hora da devolução">
+                </div>
+                
+                <input class="btn btn-success" type="submit" name="formNewPeriod" value="Registrar Aluguel"/>
                 
             </form>
             <br><br>
         </fieldset>
         
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Modelo</th>
-                <th>Placa</th>
-                <th>Data da retirada</th>
-                <th>Hora da retirada</th>
-                <th>Data da devolução</th>
-                <th>Hora da devolução</th>
-                <th>Comando</th>
+        <table class="table table-bordered">
+            <tr class="table-primary">
+                <th scope="col">ID</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Data da retirada</th>
+                <th scope="col">Hora da retirada</th>
+                <th scope="col">Data da devolução</th>
+                <th scope="col">Hora da devolução</th>
+                <th scope="col">Comando</th>
                 
             </tr>
             <%for(Period p: Period.getPeriods()){%>
