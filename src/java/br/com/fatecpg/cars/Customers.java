@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 public class Customers {
     private long id;
-    private String name;
+    private String customer_name;
     private String rg;
     private String cpf;
     private String address;
     private String telephone;
     private String email;
 
-    public Customers(Long id, String name, String rg, String cpf, String address, String telephone, String email) {
+    public Customers(Long id, String customer_name, String rg, String cpf, String address, String telephone, String email) {
         this.id = id;
-        this.name = name;
+        this.customer_name = customer_name;
         this.rg = rg;
         this.cpf = cpf;
         this.address = address;
@@ -31,12 +31,12 @@ public class Customers {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomer_Name() {
+        return customer_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomer_Name(String customer_name) {
+        this.customer_name = customer_name;
     }
 
     public String getRg() {
@@ -79,10 +79,10 @@ public class Customers {
         this.email = email;
     }
     
-    public static Customers getCustomers(String name, String rg)throws Exception{
+    public static Customers getCustomers(String rg)throws Exception{
         String SQL = "SELECT * FROM CUSTOMERS "
-                + "WHERE name = ? AND rg = ?";
-        ArrayList<Object[]> list = DataBaseConnector.getQuery(SQL, new Object[]{});
+                + "WHERE rg = ?";
+        ArrayList<Object[]> list = DataBaseConnector.getQuery(SQL, new Object[]{rg});
         if(list.isEmpty()){
             return null;
         } else {
@@ -123,9 +123,9 @@ public class Customers {
         return customers;
     }
     
-    public static void addCustomers(String name, String rg, String cpf, String address, String telephone, String email) 
+    public static void addCustomers(String customer_name, String rg, String cpf, String address, String telephone, String email) 
             throws Exception{
-        String SQL = "INSERT INTO USERS VALUES ("
+        String SQL = "INSERT INTO CUSTOMERS VALUES ("
                 + "default"
                 + ", ?"
                 + ", ?"
@@ -135,7 +135,7 @@ public class Customers {
                 + ", ?"
                 + ")";
                 
-        Object parameters[] = {name, rg, cpf, address, telephone, email};
+        Object parameters[] = {customer_name, rg, cpf, address, telephone, email};
         DataBaseConnector.execute(SQL, parameters);
     }
     

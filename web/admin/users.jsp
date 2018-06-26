@@ -30,8 +30,10 @@
 
 <html>
     <head>
-        <link rel="icon" href="../Imagens/favicon.ico">
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../css/css.css" rel="stylesheet">
+        <link rel="icon" href="../Imagens/favicon.ico">
         
         <title>ToRent Cars - Usuários</title>
     </head>
@@ -55,22 +57,51 @@
         <h3><%=error%></h3>
         <%}%>
         <center>
+            
         <fieldset>
+            
             <h5><legend>Novo Usuário</legend></h5>
             <br>
+            
             <form>
-                Nome:<input type="text" name="name"/>
-                Papel:
-                <select name="role">
+                
+               <div class="form-row">
+                <div class="form-group col-md-2">
+                    
+                <label for="inputName">Nome: </label>
+                 <input type="text" name="name" class="form-control" id="inputName" placeholder="Nome">
+                </div>
+                   
+                <div class="form-group col-md-2">
+                <label for="inputRole">Papel: </label>
+                <select name="role" id="inputRole" class="form-control">
+                
                     <option value="ADMIN">ADMIN</option>
                     <option value="OPERADOR">OPERADOR</option>
+                    
                 </select>
-                  
-                Login: <input type="text" name="login"/>
-                Senha: <input type="password" name="pass"/>
-                <input class="btn btn-success" type="submit" name="formNewUser" value="Add"/>
+                </div>
+                   
+               <div class="form-group col-md-2">
+                   
+                <label for="inputLogin">Login</label>  
+                <input type="text" name="login" class="form-control" id="inputLogin" placeholder="Login"/>
+                
+               </div>
+                   
+                <div class="form-group col-md-2">
+                    
+                <label for="inputPassword4">Senha: </label>
+                <input type="password" name="pass" class="form-control" id="inputPassword4" placeholder="Senha"/>
+                
+                </div>
+                    
+               </div>
+                
+               <input class="btn btn-success btn-lg" type="submit" name="formNewUser" value="Adicionar"/>
                 
             </form>
+            
         </fieldset>
         </center>
         <br>

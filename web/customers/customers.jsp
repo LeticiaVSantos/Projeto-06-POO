@@ -14,16 +14,17 @@
             error = e.getMessage();
         }
     }
+   
     if(request.getParameter("formNewCustomers") != null){
-        String name = request.getParameter("name");
+        String customer_name = request.getParameter("customer_name");
         String rg = request.getParameter("rg");
         String cpf = request.getParameter("cpf");
         String address = request.getParameter("address");
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
-        Customers.addCustomers(name, rg, cpf, address, telephone, email);
+        Customers.addCustomers(customer_name, rg, cpf, address, telephone, email);
         try{
-            Customers.addCustomers(name, rg, cpf, address, telephone, email);
+            Customers.addCustomers(customer_name, rg, cpf, address, telephone, email);
             response.sendRedirect(request.getRequestURI());
         }catch(Exception e){
             error = e.getMessage();
@@ -33,10 +34,10 @@
 
 <html>
     <head>
-        <link rel="icon" href="../Imagens/favicon.ico">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <title>ToRent Cars - Clientes</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="../Imagens/favicon.ico">
+        <title>Clientes - ToRent Cars</title>
     </head>
     <body>
         <%@include file="../WEB-INF/jspf/header.jspf" %>
@@ -46,23 +47,23 @@
     
     <%if(session.getAttribute("user")==null){%>
     
-    <center><h2>É preciso estar autenticado para acessar este recurso</h2>
+    <center><h2>É preciso estar autenticado para acessar este recurso</h2></center>
         <%}else{%>
             <% User user = (User) session.getAttribute("user"); %>
-            <%if(!user.getRole().equals("ADMIN")){%>
-            <h2>Você não tem permissão para acessar este recurso</h2>
-    </center>
-            
+            <%if(!user.getRole().equals("ADMIN") & !user.getRole().equals("OPERADOR")){%>
+    <center><h2>Você não tem permissão para acessar este recurso</h2></center>
+    
+          
         <%}else{%>
         <%if(error!=null){%>
         <h3><%=error%></h3>
         <%}%>
         <center>
         <fieldset>
-            <h5><legend>Novo Cliente</legend></h5>
+            <h5><legend>Cadastro de Clientes</legend></h5>
             <br>
             <form>
-                Nome:<input type="text" name="name"/>
+                Nome: <input type="text" name="customer_name"/>
                 RG: <input type="text" name="rg"/>
                 CPF: <input type="text" name="cpf"/>
                 Endereço: <input type="text" name="address"/>
@@ -91,7 +92,7 @@
             <%for(Customers c: Customers.getCustomers()){%>
             <tr>
                 <td><%=c.getId()%></td>
-                <td><%=c.getName()%></td>
+                <td><%=c.getCustomer_Name()%></td>
                 <td><%=c.getRg()%></td>
                 <td><%=c.getCpf()%></td> 
                 <td><%=c.getAddress()%></td>

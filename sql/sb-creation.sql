@@ -20,7 +20,7 @@ CREATE TABLE customers(
     id BIGINT not null primary key
         GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1)
-    , name varchar(200) not null
+    , customer_name varchar(200) not null
     , rg varchar(9) not null
     , cpf varchar(11) not null
     , address varchar(50) not null
@@ -45,8 +45,10 @@ CREATE TABLE cars_periods(
         (START WITH 1, INCREMENT BY 1)
     , model varchar(50) not null
     , plate varchar(7) not null
-    , begin_period TIMESTAMP not null
-    , end_period TIMESTAMP
+    , retirada date not null
+    , dev date not null
+    , hr_retirada time not null
+    , hr_dev time not null
     , price DOUBLE PRECISION
 
 );

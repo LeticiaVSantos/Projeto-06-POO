@@ -3,8 +3,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <!-- Css - Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link href="../css/css.css" rel="stylesheet">
 
-<link href="css/css.css" rel="stylesheet">
 
 <%
     String path = request.getContextPath();
@@ -31,7 +32,17 @@
     }
     
 %>    
-<center><h1>ToRent Cars</h1>
+
+
+<center>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <br>
+    <h1 class="display-4">ToRent Cars</h1>
+    <br>  
+  <p class="lead">Welcome to ToRent Cars.</p>
+  <hr class="my-4">
+
 <br>
 
 <%if(errorMessage!=null){ %>
@@ -40,17 +51,19 @@
 
 <%if(session.getAttribute("user")==null){%>
 
- <div class="card" style= "width: 30%" position: relative>
+
+ <div class="card" style= "width: 50%">
   <h5 class="card-header" >Entrar</h5>
   <div class="card-body">
    <form method="post">
     
-    <h5 class="card-title" style= "width: 60%" position: relative> Login: <input type="text" name="login"/></h5>
-    <h5 class="card-title" style= "width: 60%" position: relative> Senha: <input type="password" name="pass"/></h5>
+    <h5 class="card-title" style= "width: 60%"> Login: <input type="text" name="login"/></h5>
+    <h5 class="card-title" style= "width: 60%"> Senha: <input type="password" name="pass"/></h5>
     <input class="btn btn-primary" type="submit" name="formLogin" value="Entrar">
 
    </form>
   </div>
+</div>
 </div>
 <%}else{%>
 <form>
@@ -59,20 +72,26 @@
     <h4>Bem vindo, <%= user.getName()%> [<%=user.getRole()%>]</h4>
     <input class="btn btn-primary" type="submit" name="formLogoff" value="Sair"/>
  
-    
-<nav class="navbar navbar-light bg-light">
-  
-    <a class="navbar-brand"href="<%=path%>/home.jsp"> Home</a>
+ </div>   
+<nav class=" navbar fixed-top navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+   <div class="navbar-nav">
+     
+     <h4><a class="nav-item nav-link" href="<%=path%>/home.jsp"> Home</a></h4>   
     <%if(user.getRole().equals("ADMIN")){%>
-    || <a class="navbar-brand" href="<%=path%>/admin/users.jsp"> Usuários</a>
-    <a class="navbar-brand" href="<%=path%>/customers/customers.jsp"> Clientes</a>
+    <h4><a class="nav-item nav-link active" href="<%=path%>/admin/users.jsp"> Usuários</a></h4>
     <%}%>
+    <h4><a class="nav-item nav-link" href="<%=path%>/operation/prices.jsp"> Preços</a></h4>
+    <h4><a class="nav-item nav-link" href="<%=path%>/customers/customers.jsp"> Clientes</a></h4>
+    <h4><a class="nav-item nav-link" href="<%=path%>/operation/rent.jsp"> Carros Alugados</a></h4>
+    <h4><a class="nav-item nav-link" href="<%=path%>/operation/history.jsp"> Histórico</a></h4>
+    </div>
+  </div>
 </nav>
 
 </form>   
 <%}%>
 
-<hr>
 </center>
 
 <!-- JS - Bootstrap -->
