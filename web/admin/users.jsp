@@ -103,7 +103,7 @@
         </center>
         <br>
         
-        <table class="table table-bordered" >
+        <table class="table table-bordered">
             <tr class="table-primary">
                 <th scope="col">ID</th>
                 <th scope="col">Papel</th>

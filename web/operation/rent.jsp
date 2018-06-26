@@ -22,13 +22,10 @@
            String plate = request.getParameter("plate");
            
            String retirada = request.getParameter("retirada");
-           String hr_retirada = request.getParameter("hr_retirada");
            
            String dev = request.getParameter("dev");
-           String hr_dev = request.getParameter("hr_dev");
-          
            
-           Period.addPeriod(model, plate, retirada, hr_retirada, dev, hr_dev);
+           Period.addPeriod(model, plate, retirada, dev);
            response.sendRedirect(request.getRequestURI());
         }catch(Exception e){
             error = e.getMessage();
@@ -69,18 +66,12 @@
                 <label for="inputRetirada">Data da retirada: </label>
                  <input type="date" name="retirada" class="form-control" id="inputRetirada" placeholder="Retirada">
                 </div>
-                <div class="form-group col-md-2">
-                <label for="inputHr_retirada">Hora da retirada: </label>
-                 <input type="time" name="hr_retirada" class="form-control" id="inputHr_retirada" placeholder="Hora da retirada">
-                </div>
+                
                 <div class="form-group col-md-2">
                 <label for="inputDev">Data da devolução: </label>
                  <input type="date" name="dev" class="form-control" id="inputDev" placeholder="Devolução">
                 </div>
-                <div class="form-group col-md-2">
-                <label for="inputDev">Hora da devolução: </label>
-                 <input type="time" name="hr_dev" class="form-control" id="inputDev" placeholder="Hora da devolução">
-                </div>
+               
                 
                 <input class="btn btn-success" type="submit" name="formNewPeriod" value="Registrar Aluguel"/>
                 
@@ -88,15 +79,13 @@
             <br><br>
         </fieldset>
         
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="width: 1200px;">
             <tr class="table-primary">
                 <th scope="col">ID</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Placa</th>
                 <th scope="col">Data da retirada</th>
-                <th scope="col">Hora da retirada</th>
                 <th scope="col">Data da devolução</th>
-                <th scope="col">Hora da devolução</th>
                 <th scope="col">Comando</th>
                 
             </tr>
@@ -106,9 +95,8 @@
                 <td><%=p.getModel()%></td>
                 <td><%=p.getPlate()%></td>
                 <td><%=p.getRetirada()%></td>
-                <td><%=p.getHr_retirada()%></td>
                 <td><%=p.getDev()%></td>
-                <td><%=p.getHr_dev()%></td>
+                
                 
                 <td>
                     <a href="finish-period.jsp?id<%=p.getId()%>">Finalizar</a>
@@ -119,18 +107,6 @@
         </table>
         <%}%>
     </center>
-    
-    <hr>
-    
-    <footer>
-        <center>
-          <p>© 2018 Copyright:</p>
-             
-            <a href='https://github.com/LeticiaVSantos/Projeto-06---POO.git'</a>Projeto 06
-            </center>
-    </footer>
-    
-    <br>
     
     </body>
 </html>

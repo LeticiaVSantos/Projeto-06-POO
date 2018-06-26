@@ -47,8 +47,6 @@ CREATE TABLE cars_periods(
     , plate varchar(7) not null
     , retirada date not null
     , dev date not null
-    , hr_retirada time not null
-    , hr_dev time not null
     , price DOUBLE PRECISION
 
 );

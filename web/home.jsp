@@ -11,7 +11,7 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-    <center><h1>Página Inicial</h1>
+    <center><h1>Página Inicial</h1> <br>
         
         <% if(Price.getCurrentPrice() == null){ %>
     <h3>[Preço não definido pela administração do Estacionamento]</h3>

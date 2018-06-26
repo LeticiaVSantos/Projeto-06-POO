@@ -1,0 +1,11 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<footer  class="container-fluid bg-grey text-center">
+        <center>
+          <h4>© 2018 Copyright:</h4>
+             
+            <a href='https://github.com/LeticiaVSantos/Projeto-06---POO.git'</a>Projeto 06
+            
+            </center>
+    </footer>
+    

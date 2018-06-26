@@ -54,7 +54,7 @@
             </form>
         </fieldset>
       
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="width: 1200px;">
             <tr class="table-primary">
                 <th scope="col">ID</th>
                 <th scope="col">Data/hora</th>
@@ -78,7 +78,9 @@
             <%}%>            
         </table>
         <%}%>
-        
     </center>
+    
+    
+    
     </body>
 </html>
